@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import Login from "./pages/Login";
+import Routing from "./routes/Routing";
+import { isUserLogesApi } from "./api/auth";
+import { AuthContext } from "./utils/contexts";
 
-function App() {
+export default function App() {
+  const [user, setUser] = useState(null);
+  const [loadUser, setLoadUser] = useState(false);
+  const [refreshCheckLogin, setRefreshCheckLogin] = useState(false);
+
+  useEffect(() => {
+    setUser(isUserLogesApi());
+    setRefreshCheckLogin(false);
+    setLoadUser(true);
+  }, [refreshCheckLogin]);
+
+  if (!loadUser) return null;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AuthContext.Provider value={user}>
+      {!user ? (
+        <Login setRefreshCheckLogin={setRefreshCheckLogin} />
+      ) : (
+        <Routing setRefreshCheckLogin={setRefreshCheckLogin} />
+      )}
+    </AuthContext.Provider>
   );
 }
-
-export default App;

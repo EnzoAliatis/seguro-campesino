@@ -1,0 +1,51 @@
+@import "./scss/index.scss";
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.btn {
+  box-shadow: none !important;
+}
+
+.btn.btn-primary {
+  background-color: $primary;
+  border-color: $primary;
+  &:hover {
+    background-color: rgba(26, 154, 218, 1);
+  }
+}
+.btn.btn-outline-primary {
+  border-color: $border-primary;
+  color: $primary;
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: rgba(29, 161, 242, 0.1) !important;
+  }
+}
+
+input.form-control,
+textarea.form-control {
+  // background-color: $background-dark-light;
+  border-radius: 0;
+  border: 0;
+  border-bottom: 2px solid $border-dark-bottom;
+  // color: $font-light !important;
+  font-family: "poppins", sans-serif;
+
+  &:focus {
+    // background-color: $background-dark-light;
+    box-shadow: none;
+    border-bottom: 2px solid $border-primary;
+  }
+}

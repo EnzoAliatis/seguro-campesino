@@ -13,6 +13,7 @@ Aquí descripción
 | components | Componentes                                      |
 | layouts    | Donde se renderiza las paginas                   |
 | pages      | Paginás de la app web                            |
+| routes     | Se lleva el control de las rutas                 |
 | scss       | Todos los estilos globales                       |
 | utils      | Utilidades como constantes, validaciones, iconos |
 
